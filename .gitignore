@@ -1,0 +1,6 @@
+**/.*.swp
+device/**/*.o
+device/**/*.lst
+device/**/*.map
+device/**/*.elf
+device/**/*.hex
