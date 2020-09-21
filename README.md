@@ -12,6 +12,8 @@ The ATmega328 USB device currently supports two displays:
 
 The latter one is specifically meant for the 4-pin version (VCC, GND, SCL, SDA) of it, but combining the code of both displays could adjust it for SPI as well, which would (presumably) increase the frame rate significantly.
 
+On a side note, ST7789 based TFTs will generally work as well, but requires modifications to get all the pixels transferred and will have a pretty useless frame rate, so I decided to scrap that. Plus, as a color display, it kinda defeats the purpose and simplicity of XBM anyway. However, there's some incomplete code available [in another branch](https://github.com/sgreg/usbxbm/tree/discarded/st7789-tft).
+
 ### Host-side script
 
 The Python script supports several input sources to convert and send:
