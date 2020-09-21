@@ -2,6 +2,12 @@
 
 usbxbm is a USB device / Python control script combo to transfer raw [XBM](https://en.wikipedia.org/wiki/X_BitMap) image data over USB to a display connected to an ATmega328. The Python script converts images or video frames into XBM data and sends them via USB to the matching device. The device then reads the data and dumps it straight to its connected display. usbxbm itself is based on (and a showcase for) [RUDY](https://github.com/sgreg/rudy), adjusted as a standalone project.
 
+---
+
+<p align="center"><b>ACHTUNG: THIS IS A SCRAPPED FEATURE BRANCH</b><br><br>Contains incomplete code for ST7789 based TFTs<br>Mostly kept around for personal reference / notes</center>
+
+---
+
 ## Features
 
 ### Device
@@ -59,6 +65,20 @@ As mentioned, usbxbm is built using the [RUDY](https://github.com/sgreg/rudy) bo
 | 27 `SDA` | 4 `SDA` | I2C Data|
 
 
+#### ST7789 LCD
+
+| ATmega328 | LCD | Comment |
+| ---: | :--- | --- |
+| 8 / 22 `GND`| 1 `GND`| Ground |
+| 7 `VCC`| 2 `VCC`| Supply voltage |
+| 19 `PB5`| 3 `SCL`| SPI clock|
+| 17 `PB3`| 4 `SDA`| SPI data in |
+| 15 `PB1` | 5 `#RST`| Display reset |
+| 14 `PB0`| 6 `D/#C`| Data / Command mode |
+| -- | 7 `LIGHT`| Backlight |
+| 16 `PB2`| 8 `CE`| SPI chip select (might not exist on some displays) |
+
+
 (These should certainly be accompanied by a picture of this..)
 
 ### Firmware
@@ -79,6 +99,12 @@ $ make nokia5110
 
 ```
 $ make ssd1306
+```
+
+#### ST7789 TFT
+
+```
+$ make st7789
 ```
 
 ## Flash it

@@ -34,6 +34,7 @@ OBJS += usbdrv/usbdrv.o usbdrv/usbdrvasm.o
 
 NOKIA_5110_OBJS = nokia5110.o nokia_gfx.o
 SSD1306_OBJS = ssd1306.o ssd1306_gfx.o
+ST7789_OBJS = st7789.o
 
 ALL_OBJS = $(OBJS) $(NOKIA_5110_OBJS) $(SSD1306_OBJS)
 
@@ -62,6 +63,7 @@ all:
 	@echo ""
 	@echo "  make nokia5110     Build $(PROGRAM) using Nokia 5110 LCD"
 	@echo "  make ssd1306       Build $(PROGRAM) using SSD1306 OLED"
+	@echo "  make st7789        Build $(PROGRAM) using ST7789 TFT"
 	@echo "  make program       Flash $(PROGRAM) to the device"
 	@echo "  make clean         Remove all intermediate build files (.o files)"
 	@echo "  make distclean     Remove all build files (.o, .lst, .map, .elf, .hex)"
@@ -77,6 +79,10 @@ nokia5110: $(OBJS) $(NOKIA_5110_OBJS)
 	@make -s $(PROGRAM).hex
 
 ssd1306: $(OBJS) $(SSD1306_OBJS)
+	$(CC) $(CFLAGS) $^ -o $(PROGRAM).elf $(LDFLAGS)
+	@make -s $(PROGRAM).hex
+
+st7789: $(OBJS) $(ST7789_OBJS)
 	$(CC) $(CFLAGS) $^ -o $(PROGRAM).elf $(LDFLAGS)
 	@make -s $(PROGRAM).hex
 
