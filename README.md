@@ -2,6 +2,8 @@
 
 usbxbm is a USB device / Python control script combo to transfer raw [XBM](https://en.wikipedia.org/wiki/X_BitMap) image data over USB to a display connected to an ATmega328. The Python script converts images or video frames into XBM data and sends them via USB to the matching device. The device then reads the data and dumps it straight to its connected display. usbxbm itself is based on (and a showcase for) [RUDY](https://github.com/sgreg/rudy), adjusted as a standalone project.
 
+See also [hackaday.io project page](https://hackaday.io/project/174946-usbxbm).
+
 ## Features
 
 ### Device
